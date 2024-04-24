@@ -1,0 +1,17 @@
+syntax = "proto3";
+package go_play;
+
+option go_package = "./go_play";
+
+message Request {
+    int64  seq_no = 1;
+    int32 client_id = 2;
+}
+
+message Response {
+    int64  status = 1;
+}
+
+service GoPlay {
+    rpc GetResponse(Request) returns (Response) {};
+}
