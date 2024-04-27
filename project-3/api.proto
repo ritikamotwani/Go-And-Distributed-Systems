@@ -1,0 +1,18 @@
+syntax = "proto3";
+package server_buffer;
+
+option go_package = "./server_buffer";
+
+message Request {
+	int64  seq_no = 1;
+	int32 client_id = 2;
+}
+
+message Response {
+	int64  status = 1;
+	int32 client_id = 2;
+}
+
+service ServerBuffer {
+	rpc GetResponse(stream Request) returns (stream Response) {};
+}
